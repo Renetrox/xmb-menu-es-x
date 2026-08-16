@@ -18,9 +18,33 @@ feel of the original project.
 
 ## Preview
 
-<!-- Replace this image with a screenshot of XMB Menu ES-X -->
+<table>
+  <tr>
+    <td>
+      <img width="1366" height="768"
+           alt="Captura de pantalla_2026-08-15_21-42-27"
+           src="https://github.com/user-attachments/assets/aa0485b0-979c-4f29-88d0-c9bd568048d3" />
+    </td>
+    <td>
+      <img width="1366" height="768"
+           alt="Captura de pantalla_2026-08-15_21-43-12"
+           src="https://github.com/user-attachments/assets/767a442c-da07-425d-82de-e8ba34324e15" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img width="1366" height="768"
+           alt="Captura de pantalla_2026-08-15_21-44-45"
+           src="https://github.com/user-attachments/assets/b15d3a2a-7b20-4628-b492-a018a58990d0" />
+    </td>
+    <td>
+      <img width="1366" height="768"
+           alt="Captura de pantalla_2026-08-15_21-45-46"
+           src="https://github.com/user-attachments/assets/3411be97-6830-49d6-8234-aebbcc871364" />
+    </td>
+  </tr>
+</table>
 
-![XMB Menu ES-X](preview.png)
 
 ---
 
