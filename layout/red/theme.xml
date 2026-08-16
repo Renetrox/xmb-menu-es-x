@@ -1,0 +1,410 @@
+<!--
+  XMB Menu - ES-X adaptation (first pass)
+
+  Original theme:
+    XMB Menu
+    Authors: InitialDin & Ant
+    License: Creative Commons CC-BY-NC-SA
+
+  ES-X adaptation base:
+    Swatch - ps3 by FPlusGames
+    ES-X extensions by Renetrox
+
+  Goal:
+    Recreate the 16:9 XMB layout using elements already supported by
+    EmulationStation-X, without requiring changes to the ES-X source code.
+-->
+<theme>
+    <formatVersion>4</formatVersion>
+
+    <!-- =========================================================
+         VARIABLES
+         ========================================================= -->
+    <variables>
+        <fontLight>./_inc/fonts/FOT-NewRodin Pro L.otf</fontLight>
+        <fontRegular>./_inc/fonts/FOT-NewRodin Pro DB.otf</fontRegular>
+        <fontBold>./_inc/fonts/FOT-NewRodin Pro B.otf</fontBold>
+
+        <textColor>FFFFFFFF</textColor>
+        <textDimColor>FFFFFFCC</textDimColor>
+        <iconColor>FFFFFFFF</iconColor>
+    </variables>
+
+
+    <!-- =========================================================
+         COMMON BACKGROUND
+         Uses the original XMB asset tree.
+         ========================================================= -->
+    <view name="system, basic, detailed, grid, video">
+        <image name="background" extra="true">
+    <origin>0 0</origin>
+    <pos>0 0</pos>
+    <size>1 1</size>
+
+    <frameAnimation>true</frameAnimation>
+    <frameLoop>true</frameLoop>
+    <frameDuration>450</frameDuration>
+
+    <frame1>./_inc/backgrounds/wave-frames/frame_01.png</frame1>
+    <frame2>./_inc/backgrounds/wave-frames/frame_02.png</frame2>
+    <frame3>./_inc/backgrounds/wave-frames/frame_03.png</frame3>
+    <frame4>./_inc/backgrounds/wave-frames/frame_04.png</frame4>
+    <frame5>./_inc/backgrounds/wave-frames/frame_05.png</frame5>
+    <frame6>./_inc/backgrounds/wave-frames/frame_06.png</frame6>
+    <frame7>./_inc/backgrounds/wave-frames/frame_07.png</frame7>
+    <frame8>./_inc/backgrounds/wave-frames/frame_08.png</frame8>
+    <frame9>./_inc/backgrounds/wave-frames/frame_09.png</frame9>
+    <frame10>./_inc/backgrounds/wave-frames/frame_10.png</frame10>
+
+    <zIndex>0</zIndex>
+</image>
+
+<image name="background-overlay" extra="true">
+    <origin>0 0</origin>
+    <pos>0 0</pos>
+    <size>1 1</size>
+    <path>./_inc/backgrounds/overlays/red.png</path>
+    <zIndex>10</zIndex>
+</image>
+
+        <helpsystem name="help">
+            <fontPath>${fontLight}</fontPath>
+            <fontSize>0.0194</fontSize>
+            <textColor>${textColor}</textColor>
+            <iconColor>${iconColor}</iconColor>
+            <pos>0.320 0.9375</pos>
+        </helpsystem>
+    </view>
+
+
+    <!-- =========================================================
+         SCREEN OVERLAY: CLOCK + NETWORK
+         ES-X components already used by Swatch.
+         ========================================================= -->
+    <view name="screen">
+        <text name="clock">
+            <origin>0 0</origin>
+            <pos>0.013 0.023</pos>
+            <fontPath>${fontRegular}</fontPath>
+            <fontSize>0.037</fontSize>
+            <color>${textColor}</color>
+        </text>
+
+        <image name="network">
+            <origin>1 0</origin>
+            <pos>0.987 0.023</pos>
+            <size>0.070 0.070</size>
+        </image>
+    </view>
+
+
+    <!-- =========================================================
+         SYSTEM VIEW
+         Original XMB 16:9 geometry:
+           carousel y ~= 0.126
+           selected system x ~= 0.225
+           five visible items
+         ========================================================= -->
+    <view name="system">
+
+        <!-- ES-X reads this image as the artwork for every system
+             inside systemcarousel. -->
+        <image name="logo">
+            <path>./_inc/systems/controller/${system.theme}.png</path>
+            <default>./_inc/systems/controller/_default.png</default>
+        </image>
+
+        <!-- Physical media / console content for selected system -->
+        <image name="system-content" extra="true">
+            <origin>0.5 0.5</origin>
+            <pos>0.225 0.492</pos>
+            <maxSize>0.130 0.231</maxSize>
+            <path>./_inc/systems/physical-media/${system.theme}.png</path>
+            <default>./_inc/systems/physical-media/_default.png</default>
+            <zIndex>30</zIndex>
+        </image>
+
+        <!-- Selected system name -->
+        <text name="systemName" extra="true">
+            <origin>0 0</origin>
+            <pos>0.390 0.470</pos>
+            <size>0.595 0.060</size>
+            <text>${system.fullName}</text>
+            <fontPath>${fontBold}</fontPath>
+            <fontSize>0.050</fontSize>
+            <color>${textColor}</color>
+            <textStrokeColor>000000ff</textStrokeColor>
+    <textStrokeSize>1</textStrokeSize>
+            <alignment>left</alignment>
+            <zIndex>70</zIndex>
+        </text>
+
+        <!-- ES-X native split game count -->
+        <text name="systemGameCount">
+            <origin>0 0</origin>
+            <pos>0.390 0.535</pos>
+            <size>0.095 0.040</size>
+            <fontPath>${fontRegular}</fontPath>
+            <fontSize>0.030</fontSize>
+            <color>${textDimColor}</color>
+            <textStrokeColor>000000ff</textStrokeColor>
+    <textStrokeSize>1</textStrokeSize>
+            <alignment>left</alignment>
+            <zIndex>70</zIndex>
+        </text>
+
+        <text name="systemGames">
+            <origin>0 0</origin>
+            <pos>0.465 0.535</pos>
+            <size>0.180 0.040</size>
+            <fontPath>${fontRegular}</fontPath>
+            <fontSize>0.030</fontSize>
+            <color>${textDimColor}</color>
+            <textStrokeColor>000000ff</textStrokeColor>
+    <textStrokeSize>1</textStrokeSize>
+            <alignment>left</alignment>
+            <zIndex>70</zIndex>
+        </text>
+    </view>
+
+
+    <feature supported="carousel">
+        <view name="system">
+            <carousel name="systemcarousel">
+                <type>horizontal</type>
+
+                <!-- Put the logical center of a 1.0-wide carousel at x=0.225:
+                     0 - (0.275 * 1.0) + 0.5 = 0.225 -->
+                <origin>0 0</origin>
+                <pos>0 0.126</pos>
+                <size>1 0.231</size>
+                <logoOffsetX>-0.275</logoOffsetX>
+
+                <logoSize>0.108 0.193</logoSize>
+                <logoScale>1.20</logoScale>
+                <maxLogoCount>5</maxLogoCount>
+                <logoAlignment>center</logoAlignment>
+
+                <minLogoOpacity>0.90</minLogoOpacity>
+                <scaledLogoSpacing>0.20</scaledLogoSpacing>
+
+                <color>00000000</color>
+                <zIndex>80</zIndex>
+            </carousel>
+        </view>
+    </feature>
+
+
+    <!-- =========================================================
+         GAMELIST - XMB VERTICAL COVER CAROUSEL
+         ES-X textlist carouselMode replaces the ES-DE gamelist carousel.
+         ========================================================= -->
+    <view name="detailed, video">
+
+        <!-- Back arrow -->
+        <image name="back-arrow" extra="true">
+            <origin>0.5 0.5</origin>
+            <pos>0.050 0.500</pos>
+            <maxSize>0.100 0.100</maxSize>
+            <path>./_inc/images/icon-arrow.svg</path>
+            <color>${iconColor}</color>
+            <zIndex>90</zIndex>
+        </image>
+
+        <!-- Current system -->
+        <text name="gamelist-system-name" extra="true">
+            <origin>0 1</origin>
+            <pos>0.390 0.440</pos>
+            <size>0.595 0.040</size>
+            <text>${system.fullName}</text>
+            <fontPath>${fontLight}</fontPath>
+            <fontSize>0.025</fontSize>
+            <color>${textDimColor}</color>
+            <textStrokeColor>000000ff</textStrokeColor>
+    <textStrokeSize>1</textStrokeSize>
+            <alignment>left</alignment>
+            <zIndex>100</zIndex>
+        </text>
+
+        <!-- Game title -->
+        <text name="md_name">
+            <origin>0 0</origin>
+            <pos>0.390 0.470</pos>
+            <size>0.595 0.060</size>
+            <fontPath>${fontBold}</fontPath>
+            <fontSize>0.050</fontSize>
+            <color>${textColor}</color>
+            <textStrokeColor>000000ff</textStrokeColor>
+    <textStrokeSize>1</textStrokeSize>
+            <alignment>left</alignment>
+            <zIndex>100</zIndex>
+        </text>
+        
+        <image name="background-gamelist" extra="true">
+    <origin>0 0</origin>
+    <pos>0 0</pos>
+    <size>1 1</size>
+    <path>./_inc/backgrounds/overlays/black.png</path>
+    <zIndex>13</zIndex>
+</image>
+
+        <!-- Vertical XMB list.
+             Center:
+               x = 0.080 + (0.420 / 2) - 0.065 = 0.225
+               y = 0.500
+        -->
+        <textlist name="gamelist">
+            <pos>0.080 0</pos>
+            <size>0.420 1</size>
+            <origin>0 0</origin>
+
+            <orientation>vertical</orientation>
+            <carouselMode>true</carouselMode>
+            <carouselLoop>true</carouselLoop>
+            <carouselShowText>false</carouselShowText>
+
+            <!-- Use box/cover art directly from the selected game.
+                 ES-X normalizes "cover" to its boxart source. -->
+            <carouselImage>true</carouselImage>
+            <carouselImageType>cover</carouselImageType>
+            <carouselImageFit>contain</carouselImageFit>
+            <carouselFallbackImage>./_inc/systems/physical-media/_default.png</carouselFallbackImage>
+
+            <logoAlignment>center</logoAlignment>
+            <logoSize>0.140 0.170</logoSize>
+            <logoScale>1.90</logoScale>
+
+            <logoOffsetX>-0.065</logoOffsetX>
+            <logoOffsetY>0</logoOffsetY>
+
+            <maxLogoCount>5</maxLogoCount>
+            <minLogoOpacity>0.90</minLogoOpacity>
+            <scaledLogoSpacing>0.45</scaledLogoSpacing>
+
+            <carouselItemColor>00000000</carouselItemColor>
+            <carouselSelectedItemColor>00000000</carouselSelectedItemColor>
+
+            <zIndex>80</zIndex>
+        </textlist>
+
+
+        <!-- Approximation of the original "playtime" row.
+             ES-X has no md_playtime element, so last played is used here. -->
+        <image name="icon-lastplayed" extra="true">
+            <origin>0 0.5</origin>
+            <pos>0.390 0.545</pos>
+            <maxSize>0.023 0.041</maxSize>
+            <path>./_inc/images/icon-playtime.svg</path>
+            <color>${iconColor}</color>
+            <zIndex>100</zIndex>
+        </image>
+
+        <datetime name="md_lastplayed">
+            <origin>0 0</origin>
+            <displayRelative>true</displayRelative>
+            <pos>0.425 0.525</pos>
+            <size>0.300 0.040</size>
+            <fontPath>${fontRegular}</fontPath>
+            <fontSize>0.030</fontSize>
+            <color>${textDimColor}</color>
+            <zIndex>100</zIndex>
+        </datetime>
+
+        <!-- Players row -->
+        <image name="icon-players" extra="true">
+            <origin>0 0.5</origin>
+            <pos>0.390 0.595</pos>
+            <maxSize>0.023 0.041</maxSize>
+            <path>./_inc/images/icon-players.svg</path>
+            <color>${iconColor}</color>
+            <zIndex>100</zIndex>
+        </image>
+
+        <text name="md_players">
+            <origin>0 0</origin>
+            <pos>0.425 0.575</pos>
+            <size>0.200 0.040</size>
+            <fontPath>${fontRegular}</fontPath>
+            <fontSize>0.030</fontSize>
+            <color>${textDimColor}</color>
+            <zIndex>100</zIndex>
+        </text>
+    </view>
+
+
+    <!-- =========================================================
+         VIDEO VIEW
+         Dynamic fanart + video + marquee are native ES-X elements.
+         ========================================================= -->
+    <view name="video">
+
+        <!-- Dynamic game background. If no fanart exists, the static waves
+             background remains visible underneath. -->
+        <image name="md_fanart">
+            <origin>0 0</origin>
+            <visible>true</visible>
+            <pos>0 0</pos>
+            <size>1 1</size>
+            <zIndex>12</zIndex>
+        </image>
+
+        <!-- Dark veil for readability -->
+        <image name="fanart-dim" extra="true">
+            <origin>0 0</origin>
+            <pos>0 0</pos>
+            <size>1 1</size>
+            <path>./_inc/images/space.png</path>
+            <color>00000066</color>
+            <zIndex>3</zIndex>
+        </image>
+
+        <video name="md_video">
+            <origin>0.5 0.5</origin>
+            <pos>0.225 0.500</pos>
+            <size>0.280 0.330</size>
+            <delay>2</delay>
+            <showSnapshotNoVideo>false</showSnapshotNoVideo>
+            <zIndex>90</zIndex>
+        </video>
+
+        <image name="md_marquee">
+            <origin>1 1</origin>
+            <visible>true</visible>
+            <pos>0.948 0.907</pos>
+            <maxSize>0.313 0.370</maxSize>
+            <zIndex>55</zIndex>
+        </image>
+    </view>
+
+
+    <!-- =========================================================
+         NAVIGATION SOUNDS
+         Same event names already supported by ES-X / Swatch.
+         ========================================================= -->
+    <feature supported="navigationsounds">
+        <view name="all">
+            <sound name="systembrowse">
+                <path>./_inc/sounds/systembrowse.wav</path>
+            </sound>
+            <sound name="quicksysselect">
+                <path>./_inc/sounds/quicksysselect.wav</path>
+            </sound>
+            <sound name="select">
+                <path>./_inc/sounds/select.wav</path>
+            </sound>
+            <sound name="back">
+                <path>./_inc/sounds/back.wav</path>
+            </sound>
+            <sound name="scroll">
+                <path>./_inc/sounds/scroll.wav</path>
+            </sound>
+            <sound name="favorite">
+                <path>./_inc/sounds/favorite.wav</path>
+            </sound>
+            <sound name="launch">
+                <path>./_inc/sounds/launch.wav</path>
+            </sound>
+        </view>
+    </feature>
+
+</theme>
