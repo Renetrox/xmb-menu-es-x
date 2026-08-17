@@ -36,15 +36,13 @@
          Uses the original XMB asset tree.
          ========================================================= -->
     <view name="system, basic, detailed, grid, video">
-        <image name="background-20th" extra="true">
+     <image name="background-20th" extra="true">
     <origin>0 0</origin>
     <pos>0 0</pos>
     <size>1 1</size>
     <path>./_inc/backgrounds/PS20th.png</path>
     <zIndex>1</zIndex>
 </image>
-
-
 
         <helpsystem name="help">
             <fontPath>${fontLight}</fontPath>
@@ -74,7 +72,16 @@
             <pos>0.987 0.023</pos>
             <size>0.070 0.070</size>
         </image>
+        
+        <image name="bluetooth-icon" extra="true">
+    <origin>1 0</origin>
+    <pos>0.905 0.023</pos>
+    <size>0.070 0.070</size>
+    <zIndex>200</zIndex>
+</image>
     </view>
+    
+    
 
 
     <!-- =========================================================
@@ -233,38 +240,44 @@
                y = 0.500
         -->
         <textlist name="gamelist">
-            <pos>0.080 0</pos>
-            <size>0.420 1</size>
-            <origin>0 0</origin>
+    <pos>0.020 0</pos>
+    <size>0.420 1</size>
+    <origin>0 0</origin>
 
-            <orientation>vertical</orientation>
-            <carouselMode>true</carouselMode>
-            <carouselLoop>true</carouselLoop>
-            <carouselShowText>false</carouselShowText>
+    <orientation>vertical</orientation>
+    <carouselMode>true</carouselMode>
+    <carouselLoop>true</carouselLoop>
+    <carouselShowText>false</carouselShowText>
 
-            <!-- Use box/cover art directly from the selected game.
-                 ES-X normalizes "cover" to its boxart source. -->
-            <carouselImage>true</carouselImage>
-            <carouselImageType>cover</carouselImageType>
-            <carouselImageFit>contain</carouselImageFit>
-            <carouselFallbackImage>./_inc/systems/physical-media/_default.png</carouselFallbackImage>
+    <carouselImage>true</carouselImage>
+    <carouselImageType>cover</carouselImageType>
+    <carouselImageFit>contain</carouselImageFit>
+    <carouselFallbackImage>./_inc/systems/physical-media/_default.png</carouselFallbackImage>
 
-            <logoAlignment>center</logoAlignment>
-            <logoSize>0.140 0.170</logoSize>
-            <logoScale>1.90</logoScale>
+    <!-- Tamaño visual de las portadas -->
+    <carouselImageLockSize>true</carouselImageLockSize>
+    <carouselImageBoxSize>0.310 0.275</carouselImageBoxSize>
 
-            <logoOffsetX>-0.065</logoOffsetX>
-            <logoOffsetY>0</logoOffsetY>
+    <!-- Geometría del carrusel -->
+    <logoAlignment>center</logoAlignment>
+    <logoSize>0.165 0.145</logoSize>
+    <logoScale>1.90</logoScale>
 
-            <maxLogoCount>5</maxLogoCount>
-            <minLogoOpacity>0.90</minLogoOpacity>
-            <scaledLogoSpacing>0.45</scaledLogoSpacing>
+    <logoOffsetX>-0.065</logoOffsetX>
+<logoOffsetY>0</logoOffsetY>
 
-            <carouselItemColor>00000000</carouselItemColor>
-            <carouselSelectedItemColor>00000000</carouselSelectedItemColor>
+<selectedLogoOffsetX>0</selectedLogoOffsetX>
+<selectedLogoOffsetY>0</selectedLogoOffsetY>
 
-            <zIndex>80</zIndex>
-        </textlist>
+    <maxLogoCount>5</maxLogoCount>
+    <minLogoOpacity>0.90</minLogoOpacity>
+    <scaledLogoSpacing>0.45</scaledLogoSpacing>
+
+    <carouselItemColor>00000000</carouselItemColor>
+    <carouselSelectedItemColor>00000000</carouselSelectedItemColor>
+
+    <zIndex>80</zIndex>
+</textlist>
 
 
         <!-- Approximation of the original "playtime" row.
