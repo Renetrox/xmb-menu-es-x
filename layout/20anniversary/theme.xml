@@ -36,7 +36,7 @@
          Uses the original XMB asset tree.
          ========================================================= -->
     <view name="system, basic, detailed, grid, video">
-     <image name="background-20th" extra="true">
+        <image name="background-20th" extra="true">
     <origin>0 0</origin>
     <pos>0 0</pos>
     <size>1 1</size>
@@ -47,8 +47,8 @@
         <helpsystem name="help">
             <fontPath>${fontLight}</fontPath>
             <fontSize>0.0194</fontSize>
-            <textColor>${textColor}</textColor>
-            <iconColor>${iconColor}</iconColor>
+            <textColor>5b595a</textColor>
+            <iconColor>5b595a</iconColor>
             <pos>0.320 0.9375</pos>
         </helpsystem>
     </view>
@@ -73,12 +73,11 @@
             <size>0.070 0.070</size>
         </image>
         
-        <image name="bluetooth-icon" extra="true">
-    <origin>1 0</origin>
-    <pos>0.905 0.023</pos>
-    <size>0.070 0.070</size>
-    <zIndex>200</zIndex>
-</image>
+    <image name="bluetooth">
+        <origin>1 0</origin>
+        <pos>0.905 0.023</pos>
+        <size>0.070 0.070</size>
+    </image>
     </view>
     
     
@@ -107,6 +106,7 @@
             <maxSize>0.130 0.231</maxSize>
             <path>./_inc/systems/physical-media/${system.theme}.png</path>
             <default>./_inc/systems/physical-media/_default.png</default>
+             <color>5b595a</color>
             <zIndex>30</zIndex>
         </image>
 
@@ -124,6 +124,16 @@
             <alignment>left</alignment>
             <zIndex>70</zIndex>
         </text>
+
+<image name="divisor" extra="true">
+            <origin>0 0</origin>
+            <pos>0.390 0.532</pos>
+            <size>0.610 0.005</size>
+            <path>./_inc/images/divisor.png</path>
+            <color>5b595a</color>
+            
+            <zIndex>90</zIndex>
+        </image>
 
         <!-- ES-X native split game count -->
         <text name="systemGameCount">
@@ -226,6 +236,16 @@
             <zIndex>100</zIndex>
         </text>
         
+        <image name="divisor" extra="true">
+            <origin>0 0</origin>
+            <pos>0.390 0.532</pos>
+            <size>0.610 0.005</size>
+            <path>./_inc/images/divisor.png</path>
+            <color>${iconColor}</color>
+            
+            <zIndex>90</zIndex>
+        </image>
+        
         <image name="background-gamelist" extra="true">
     <origin>0 0</origin>
     <pos>0 0</pos>
@@ -282,45 +302,46 @@
 
         <!-- Approximation of the original "playtime" row.
              ES-X has no md_playtime element, so last played is used here. -->
-        <image name="icon-lastplayed" extra="true">
-            <origin>0 0.5</origin>
-            <pos>0.390 0.545</pos>
-            <maxSize>0.023 0.041</maxSize>
-            <path>./_inc/images/icon-playtime.svg</path>
-            <color>${iconColor}</color>
-            <zIndex>100</zIndex>
-        </image>
+        <!-- Last played row -->
+<image name="icon-lastplayed" extra="true">
+    <origin>0 0.5</origin>
+    <pos>0.390 0.557</pos>
+    <maxSize>0.023 0.041</maxSize>
+    <path>./_inc/images/icon-playtime.svg</path>
+    <color>${iconColor}</color>
+    <zIndex>100</zIndex>
+</image>
 
-        <datetime name="md_lastplayed">
-            <origin>0 0</origin>
-            <displayRelative>true</displayRelative>
-            <pos>0.425 0.525</pos>
-            <size>0.300 0.040</size>
-            <fontPath>${fontRegular}</fontPath>
-            <fontSize>0.030</fontSize>
-            <color>${textDimColor}</color>
-            <zIndex>100</zIndex>
-        </datetime>
+<datetime name="md_lastplayed">
+    <origin>0 0</origin>
+    <displayRelative>true</displayRelative>
+    <pos>0.425 0.537</pos>
+    <size>0.300 0.040</size>
+    <fontPath>${fontRegular}</fontPath>
+    <fontSize>0.030</fontSize>
+    <color>${textDimColor}</color>
+    <zIndex>100</zIndex>
+</datetime>
 
-        <!-- Players row -->
-        <image name="icon-players" extra="true">
-            <origin>0 0.5</origin>
-            <pos>0.390 0.595</pos>
-            <maxSize>0.023 0.041</maxSize>
-            <path>./_inc/images/icon-players.svg</path>
-            <color>${iconColor}</color>
-            <zIndex>100</zIndex>
-        </image>
+<!-- Players row -->
+<image name="icon-players" extra="true">
+    <origin>0 0.5</origin>
+    <pos>0.390 0.607</pos>
+    <maxSize>0.023 0.041</maxSize>
+    <path>./_inc/images/icon-players.svg</path>
+    <color>${iconColor}</color>
+    <zIndex>100</zIndex>
+</image>
 
-        <text name="md_players">
-            <origin>0 0</origin>
-            <pos>0.425 0.575</pos>
-            <size>0.200 0.040</size>
-            <fontPath>${fontRegular}</fontPath>
-            <fontSize>0.030</fontSize>
-            <color>${textDimColor}</color>
-            <zIndex>100</zIndex>
-        </text>
+<text name="md_players">
+    <origin>0 0</origin>
+    <pos>0.425 0.587</pos>
+    <size>0.200 0.040</size>
+    <fontPath>${fontRegular}</fontPath>
+    <fontSize>0.030</fontSize>
+    <color>${textDimColor}</color>
+    <zIndex>100</zIndex>
+</text>
     </view>
 
 
