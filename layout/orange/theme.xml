@@ -197,14 +197,15 @@
                 <pos>0 0.126</pos>
                 <size>1 0.231</size>
                 <logoOffsetX>-0.275</logoOffsetX>
+                <logoSpacingX>0.15</logoSpacingX>
 
                 <logoSize>0.108 0.193</logoSize>
                 <logoScale>1.20</logoScale>
-                <maxLogoCount>5</maxLogoCount>
+                <maxLogoCount>11</maxLogoCount>
                 <logoAlignment>center</logoAlignment>
 
                 <minLogoOpacity>0.90</minLogoOpacity>
-                <scaledLogoSpacing>0.20</scaledLogoSpacing>
+                <scaledLogoSpacing>0.65</scaledLogoSpacing>
 
                 <color>00000000</color>
                 <zIndex>80</zIndex>
