@@ -147,6 +147,16 @@
             <zIndex>70</zIndex>
         </text>
 
+<image name="divisor" extra="true">
+            <origin>0 0</origin>
+            <pos>0.390 0.532</pos>
+            <size>0.610 0.005</size>
+            <path>./_inc/images/divisor.png</path>
+            <color>${iconColor}</color>
+            
+            <zIndex>90</zIndex>
+        </image>
+
         <!-- ES-X native split game count -->
         <text name="systemGameCount">
             <origin>0 0</origin>
@@ -187,14 +197,16 @@
                 <pos>0 0.126</pos>
                 <size>1 0.231</size>
                 <logoOffsetX>-0.275</logoOffsetX>
+                <logoSpacingX>0.15</logoSpacingX>
 
                 <logoSize>0.108 0.193</logoSize>
                 <logoScale>1.20</logoScale>
-                <maxLogoCount>5</maxLogoCount>
+                <maxLogoCount>11</maxLogoCount>
                 <logoAlignment>center</logoAlignment>
 
                 <minLogoOpacity>0.90</minLogoOpacity>
-                <scaledLogoSpacing>0.20</scaledLogoSpacing>
+                <scaledLogoSpacing>0.65</scaledLogoSpacing>
+
 
                 <color>00000000</color>
                 <zIndex>80</zIndex>
@@ -247,6 +259,16 @@
             <alignment>left</alignment>
             <zIndex>100</zIndex>
         </text>
+        
+        <image name="divisor" extra="true">
+            <origin>0 0</origin>
+            <pos>0.390 0.532</pos>
+            <size>0.610 0.005</size>
+            <path>./_inc/images/divisor.png</path>
+            <color>${iconColor}</color>
+            
+            <zIndex>90</zIndex>
+        </image>
         
         <image name="background-gamelist" extra="true">
     <origin>0 0</origin>
@@ -304,45 +326,46 @@
 
         <!-- Approximation of the original "playtime" row.
              ES-X has no md_playtime element, so last played is used here. -->
-        <image name="icon-lastplayed" extra="true">
-            <origin>0 0.5</origin>
-            <pos>0.390 0.545</pos>
-            <maxSize>0.023 0.041</maxSize>
-            <path>./_inc/images/icon-playtime.svg</path>
-            <color>${iconColor}</color>
-            <zIndex>100</zIndex>
-        </image>
+        <!-- Last played row -->
+<image name="icon-lastplayed" extra="true">
+    <origin>0 0.5</origin>
+    <pos>0.390 0.557</pos>
+    <maxSize>0.023 0.041</maxSize>
+    <path>./_inc/images/icon-playtime.svg</path>
+    <color>${iconColor}</color>
+    <zIndex>100</zIndex>
+</image>
 
-        <datetime name="md_lastplayed">
-            <origin>0 0</origin>
-            <displayRelative>true</displayRelative>
-            <pos>0.425 0.525</pos>
-            <size>0.300 0.040</size>
-            <fontPath>${fontRegular}</fontPath>
-            <fontSize>0.030</fontSize>
-            <color>${textDimColor}</color>
-            <zIndex>100</zIndex>
-        </datetime>
+<datetime name="md_lastplayed">
+    <origin>0 0</origin>
+    <displayRelative>true</displayRelative>
+    <pos>0.425 0.537</pos>
+    <size>0.300 0.040</size>
+    <fontPath>${fontRegular}</fontPath>
+    <fontSize>0.030</fontSize>
+    <color>${textDimColor}</color>
+    <zIndex>100</zIndex>
+</datetime>
 
-        <!-- Players row -->
-        <image name="icon-players" extra="true">
-            <origin>0 0.5</origin>
-            <pos>0.390 0.595</pos>
-            <maxSize>0.023 0.041</maxSize>
-            <path>./_inc/images/icon-players.svg</path>
-            <color>${iconColor}</color>
-            <zIndex>100</zIndex>
-        </image>
+<!-- Players row -->
+<image name="icon-players" extra="true">
+    <origin>0 0.5</origin>
+    <pos>0.390 0.607</pos>
+    <maxSize>0.023 0.041</maxSize>
+    <path>./_inc/images/icon-players.svg</path>
+    <color>${iconColor}</color>
+    <zIndex>100</zIndex>
+</image>
 
-        <text name="md_players">
-            <origin>0 0</origin>
-            <pos>0.425 0.575</pos>
-            <size>0.200 0.040</size>
-            <fontPath>${fontRegular}</fontPath>
-            <fontSize>0.030</fontSize>
-            <color>${textDimColor}</color>
-            <zIndex>100</zIndex>
-        </text>
+<text name="md_players">
+    <origin>0 0</origin>
+    <pos>0.425 0.587</pos>
+    <size>0.200 0.040</size>
+    <fontPath>${fontRegular}</fontPath>
+    <fontSize>0.030</fontSize>
+    <color>${textDimColor}</color>
+    <zIndex>100</zIndex>
+</text>
     </view>
 
 
