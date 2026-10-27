@@ -94,3 +94,21 @@ label=Color del fondo - Color style
 apply_to=layout
 values=blue|Blue-Azul,orange|Orange-Naranja,purple|Purple-Violeta,red|Red-Rojo,20anniversary|20th Anniversary
 default=blue
+```
+
+---
+
+## System carousel adjustments (ES-X)
+
+All five layouts (`blue`, `orange`, `purple`, `red`, `20anniversary`) share these horizontal carousel settings, tuned in October 2026:
+
+```xml
+<logoOffsetX>-0.275</logoOffsetX>
+<logoSpacingX>0.15</logoSpacingX>
+<maxLogoCount>11</maxLogoCount>
+<scaledLogoSpacing>0.65</scaledLogoSpacing>
+```
+
+Edit `layout/<style>/theme.xml`, inside `<carousel name="systemcarousel">`, to adjust the system ribbon. `logoOffsetX` shifts the entire row (including the selected logo); `logoSpacingX` changes the distance between logos; `maxLogoCount` caps rendered logos; `scaledLogoSpacing` changes spacing adjacent to the enlarged selection. Keep `logoOffsetX` unchanged when preserving the XMB selection anchor. Showing additional logos can still be limited by clipping at the viewport edges.
+
+For the full carousel explanation, see [ES-X theme documentation](https://github.com/Renetrox/EmulationStation-X/blob/main/THEMES.md#positioning-and-spacing-a-horizontal-system-carousel-xmb-example).
