@@ -294,8 +294,9 @@
     <carouselShowText>false</carouselShowText>
 
     <carouselImage>true</carouselImage>
-    <carouselImageType>cover</carouselImageType>
+    <carouselImageType>thumbnail</carouselImageType>
     <carouselImageFit>contain</carouselImageFit>
+    <carouselImageCornerRadius>0.010</carouselImageCornerRadius>
     <carouselFallbackImage>./_inc/systems/physical-media/_default.png</carouselFallbackImage>
 
     <!-- Tamaño visual de las portadas -->
@@ -399,6 +400,7 @@
             <origin>0.5 0.5</origin>
             <pos>0.225 0.500</pos>
             <size>0.280 0.330</size>
+            <videoCornerRadius>0.010</videoCornerRadius>
             <delay>2</delay>
             <showSnapshotNoVideo>false</showSnapshotNoVideo>
             <zIndex>90</zIndex>
