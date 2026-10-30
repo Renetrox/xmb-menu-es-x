@@ -301,11 +301,11 @@
 
     <!-- Tamaño visual de las portadas -->
     <carouselImageLockSize>true</carouselImageLockSize>
-    <carouselImageBoxSize>0.310 0.275</carouselImageBoxSize>
+    <carouselImageBoxSize>0.633 0.323</carouselImageBoxSize>
 
     <!-- Geometría del carrusel -->
     <logoAlignment>center</logoAlignment>
-    <logoSize>0.165 0.145</logoSize>
+    <logoSize>0.333 0.170</logoSize>
     <logoScale>1.90</logoScale>
 
     <logoOffsetX>-0.065</logoOffsetX>
@@ -398,7 +398,7 @@
 
         <video name="md_video">
             <origin>0.5 0.5</origin>
-            <pos>0.225 0.500</pos>
+            <pos>0.205 0.500</pos>
             <size>0.280 0.330</size>
             <videoCornerRadius>0.010</videoCornerRadius>
             <delay>2</delay>
